@@ -12,19 +12,24 @@ When implementing a new feature or fixing a bug, please create a new pull reques
 
 ### Windows
 
-1. Install windows subsystem for linux
+---
+Prerequisites
 
-2. Install docker desktop
+- Git for windows
+- The Windows subsystem for linux and a linux distribution of your choice
+- docker for Windows
+- the editor of your choice
 
-3. clone the repository
-   with ```git clone <repo address>.git```
+---
 
-4. verify docker is running
+1. clone the repository with ```git clone <repo address>.git```
 
-5. start the container with ```docker-compose up``` in the repository root directory
+2. verify docker is running
 
-6. verify the containers are running:
+3. start the container with ```docker-compose up``` in the repository root directory
 
-    A. verify the backend is up by going to <http://localhost:3000/api/ping>
+4. verify the containers are running:
 
-    B. If everything is working properly, you’ll be able to create a new user on <http://localhost:3001/register>
+    1. verify the backend is up by going to <http://localhost:3000/api/ping>
+
+    2. If everything is working properly, you’ll be able to create a new user on <http://localhost:3001/register>
