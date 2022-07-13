@@ -10,4 +10,21 @@ When implementing a new feature or fixing a bug, please create a new pull reques
 
 ## First setup
 
-**[TODO 05/01/2018 @vanessa-cooper]:** _It's been a while since anyone ran a fresh copy of this repo. I think it's worth documenting the steps needed to install and run the repo on a new machine?_
+### Windows
+
+1. Install windows subsystem for linux
+
+2. Install docker desktop
+
+3. clone the repository
+   with ```git clone <repo address>.git```
+
+4. verify docker is running
+
+5. start the container with ```docker-compose up``` in the repository root directory
+
+6. verify the containers are running:
+
+    A. verify the backend is up by going to <http://localhost:3000/api/ping>
+
+    B. If everything is working properly, you’ll be able to create a new user on <http://localhost:3001/register>
