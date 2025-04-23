@@ -16,21 +16,6 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
-// Define the Item schema
-const ItemSchema = new mongoose.Schema(
-  {
-    slug: { type: String, lowercase: true, unique: true },
-    title: { type: String, required: [true, "can't be blank"] },
-    description: { type: String, required: [true, "can't be blank"] },
-    image: String,
-    favoritesCount: { type: Number, default: 0 },
-    comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
-    tagList: [{ type: String }],
-    seller: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
-  },
-  { timestamps: true }
-);
-
 const Item = mongoose.model('Item', ItemSchema);
 
 // Example data to seed
@@ -41,7 +26,7 @@ const sampleItems = [
         description: 'A stylish vintage chair from the 60s.',
         image: 'http://example.com/vintage-chair.jpg',
         tagList: ['furniture', 'vintage'],
-        seller: new mongoose.Types.ObjectId()
+        seller: {username: "gpend"}
       },
       {
         slug: 'retro-lamp',
@@ -49,7 +34,7 @@ const sampleItems = [
         description: 'A retro-style lamp perfect for modern interiors.',
         image: 'http://example.com/retro-lamp.jpg',
         tagList: ['lighting', 'retro'],
-        seller: new mongoose.Types.ObjectId()
+        seller: {username: "gpend"}
       },
       {
         slug: 'mid-century-desk',
@@ -57,7 +42,7 @@ const sampleItems = [
         description: 'Walnut mid-century modern desk with drawers.',
         image: 'http://example.com/mid-century-desk.jpg',
         tagList: ['furniture', 'mid-century'],
-        seller: new mongoose.Types.ObjectId()
+        seller: {username: "gpend"}
       },
       {
         slug: 'ceramic-vase',
@@ -65,7 +50,7 @@ const sampleItems = [
         description: 'A beautiful handmade ceramic vase with a glossy finish.',
         image: 'http://example.com/ceramic-vase.jpg',
         tagList: ['home-decor', 'ceramic'],
-        seller: new mongoose.Types.ObjectId()
+        seller: {username: "gpend"}
       },
       {
         slug: 'linen-curtains',
@@ -73,7 +58,7 @@ const sampleItems = [
         description: 'Breathable natural linen curtains for your living room.',
         image: 'http://example.com/linen-curtains.jpg',
         tagList: ['curtains', 'linen'],
-        seller: new mongoose.Types.ObjectId()
+        seller: {username: "gpend"}
       },
       {
         slug: 'industrial-shelf',
@@ -81,7 +66,7 @@ const sampleItems = [
         description: 'A rustic industrial-style wall-mounted shelf.',
         image: 'http://example.com/industrial-shelf.jpg',
         tagList: ['storage', 'industrial'],
-        seller: new mongoose.Types.ObjectId()
+        seller: {username: "gpend"}
       },
       {
         slug: 'abstract-painting',
@@ -89,7 +74,7 @@ const sampleItems = [
         description: 'Colorful abstract painting on stretched canvas.',
         image: 'http://example.com/abstract-painting.jpg',
         tagList: ['art', 'abstract'],
-        seller: new mongoose.Types.ObjectId()
+        seller: {username: "gpend"}
       },
       {
         slug: 'macrame-wall-hanging',
@@ -97,7 +82,7 @@ const sampleItems = [
         description: 'Hand-knotted macrame wall hanging for boho interiors.',
         image: 'http://example.com/macrame-wall.jpg',
         tagList: ['boho', 'macrame'],
-        seller: new mongoose.Types.ObjectId()
+        seller: {username: "gpend"}
       },
       {
         slug: 'leather-sofa',
@@ -105,7 +90,7 @@ const sampleItems = [
         description: 'Luxurious genuine leather sofa in dark brown.',
         image: 'http://example.com/leather-sofa.jpg',
         tagList: ['furniture', 'leather'],
-        seller: new mongoose.Types.ObjectId()
+        seller: {username: "gpend"}
       },
       {
         slug: 'bamboo-cutlery',
@@ -113,7 +98,7 @@ const sampleItems = [
         description: 'Sustainable bamboo cutlery perfect for camping.',
         image: 'http://example.com/bamboo-cutlery.jpg',
         tagList: ['kitchen', 'eco-friendly'],
-        seller: new mongoose.Types.ObjectId()
+        seller: {username: "gpend"}
       },
       {
         slug: 'wool-blanket',
@@ -121,7 +106,7 @@ const sampleItems = [
         description: 'Hand-knit chunky wool blanket for cozy evenings.',
         image: 'http://example.com/wool-blanket.jpg',
         tagList: ['textiles', 'cozy'],
-        seller: new mongoose.Types.ObjectId()
+        seller: {username: "gpend"}
       },
       {
         slug: 'geometric-rug',
@@ -129,7 +114,7 @@ const sampleItems = [
         description: 'Colorful geometric rug to add life to your floor.',
         image: 'http://example.com/geometric-rug.jpg',
         tagList: ['rug', 'modern'],
-        seller: new mongoose.Types.ObjectId()
+        seller: {username: "gpend"}
       },
       {
         slug: 'teak-bookshelf',
@@ -137,7 +122,7 @@ const sampleItems = [
         description: 'Elegant and durable teak wood bookshelf.',
         image: 'http://example.com/teak-bookshelf.jpg',
         tagList: ['furniture', 'books'],
-        seller: new mongoose.Types.ObjectId()
+        seller: {username: "gpend"}
       },
       {
         slug: 'glass-pendant-light',
@@ -145,7 +130,7 @@ const sampleItems = [
         description: 'Modern clear glass pendant lighting for kitchens.',
         image: 'http://example.com/pendant-light.jpg',
         tagList: ['lighting', 'glass'],
-        seller: new mongoose.Types.ObjectId()
+        seller: {username: "gpend"}
       },
       {
         slug: 'reclaimed-table',
@@ -153,7 +138,7 @@ const sampleItems = [
         description: 'Dining table made from reclaimed barn wood.',
         image: 'http://example.com/reclaimed-table.jpg',
         tagList: ['eco-friendly', 'dining'],
-        seller: new mongoose.Types.ObjectId()
+        seller: {username: "gpend"}
       },
       {
         slug: 'minimal-clock',
@@ -161,7 +146,7 @@ const sampleItems = [
         description: 'Silent wall clock with a sleek minimal design.',
         image: 'http://example.com/minimal-clock.jpg',
         tagList: ['home-decor', 'minimalist'],
-        seller: new mongoose.Types.ObjectId()
+        seller: {username: "gpend"}
       },
       {
         slug: 'vintage-radio',
@@ -169,7 +154,7 @@ const sampleItems = [
         description: 'Fully functional vintage radio with wood paneling.',
         image: 'http://example.com/vintage-radio.jpg',
         tagList: ['electronics', 'vintage'],
-        seller: new mongoose.Types.ObjectId()
+        seller: {username: "gpend"}
       },
       {
         slug: 'plant-stand',
@@ -177,7 +162,7 @@ const sampleItems = [
         description: 'Elegant plant stand for indoor greenery.',
         image: 'http://example.com/plant-stand.jpg',
         tagList: ['plants', 'furniture'],
-        seller: new mongoose.Types.ObjectId()
+        seller: {username: "gpend"}
       },
       {
         slug: 'aroma-diffuser',
@@ -185,7 +170,7 @@ const sampleItems = [
         description: 'Ultrasonic diffuser for aromatherapy and relaxation.',
         image: 'http://example.com/aroma-diffuser.jpg',
         tagList: ['wellness', 'aromatherapy'],
-        seller: new mongoose.Types.ObjectId()
+        seller: {username: "gpend"}
       },
       {
         slug: 'woven-basket',
@@ -193,7 +178,7 @@ const sampleItems = [
         description: 'Natural fiber basket for stylish storage.',
         image: 'http://example.com/woven-basket.jpg',
         tagList: ['storage', 'natural'],
-        seller: new mongoose.Types.ObjectId()
+        seller: {username: "gpend"}
       },
       {
         slug: 'floor-lamp',
@@ -201,7 +186,7 @@ const sampleItems = [
         description: 'Modern floor lamp with adjustable head.',
         image: 'http://example.com/floor-lamp.jpg',
         tagList: ['lighting', 'modern'],
-        seller: new mongoose.Types.ObjectId()
+        seller: {username: "gpend"}
       }
 ];
 
